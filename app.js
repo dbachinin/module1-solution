@@ -17,13 +17,18 @@ function LunchCheckController($scope) {
   function countLunchItems(items) {
     let items_count = items.split(',').filter((val) => {return val != '';}).length;
     let out = "";
-    $scope.borderColor = 'green';
-    if (items_count <= 3) {
-      out = 'Enjoy';
-      $scope.textColorClass = "text-info";
-    }else{
-      out = 'Too much';
+    if (items_count == 0) {
       $scope.textColorClass = "text-danger";
+      out = 'Please enter data first!';
+    }else{
+      $scope.borderColor = 'green';
+      if (items_count <= 3) {
+        out = 'Enjoy';
+        $scope.textColorClass = "text-info";
+      }else{
+        out = 'Too much';
+        $scope.textColorClass = "text-danger";
+      }
     }
     return out
   }
