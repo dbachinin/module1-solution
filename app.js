@@ -15,9 +15,7 @@ function LunchCheckController($scope) {
     $scope.LunchCheckState = countLunchItems($scope.lunch_menu);
   };
   function countLunchItems(items) {
-    let items_count = items.split(',').filter(() => {
-      return val != '';
-    }).length;
+    let items_count = items.split(',').filter((val) => {return val != '';}).length;
     let out = "";
     $scope.borderColor = 'green';
     if (items_count <= 3) {
